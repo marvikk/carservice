@@ -1,0 +1,32 @@
+<html>
+<head>
+</head>
+<body ng-app="app" ng-controller="MainController">
+
+<div>{{greeting}}</div> 
+ <div>{{response}}</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ </body>   
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+<script>
+angular.module('app',[])
+.controller('MainController', MainController);
+    
+function MainController($scope, $http){
+    $scope.greeting = "hello";
+    $http.get('http://localhost:3001/api/masters').success(function(response){
+        console.log(response);
+        $scope.response = response;
+    }); 
+}
+</script>
+</html>
